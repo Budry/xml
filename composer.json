@@ -1,0 +1,11 @@
+{
+  "name": "budry/xml",
+  "require": {
+    "tracy/tracy": "^2.5"
+  },
+  "autoload": {
+    "psr-4": {
+      "Budry\\XML\\": "src/"
+    }
+  }
+}
