@@ -38,4 +38,10 @@ interface IEntity
      * @return void
      */
     public function serialize(\XMLWriter $writer);
+
+    /**
+     * @param \SimpleXMLElement $element
+     * @return $this
+     */
+    public function deserialize(\SimpleXMLElement $element);
 }

@@ -2,6 +2,8 @@
 
 namespace Budry\XML\Fields;
 
+use Budry\XML\Entity\Entity;
+
 class ComplexType extends ElementType
 {
     /** @var null|string */
@@ -18,8 +20,19 @@ class ComplexType extends ElementType
         parent::__construct($class::getTagName(), $class::getNamespace(), $type);
     }
 
+    /**
+     * @return null|string
+     */
     public function getClass()
     {
         return $this->class;
+    }
+
+    /**
+     * @return Entity
+     */
+    public function getInstance()
+    {
+        return new $this->class;
     }
 }

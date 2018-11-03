@@ -182,9 +182,7 @@ abstract class Entity implements IEntity
                     $this->addValue($child->getName(), $fieldDefinition->deserialize($child));
                 }
             } else if ($fieldDefinition instanceof ComplexType) {
-                $class = $fieldDefinition->getClass();
-                /** @var Entity $instance */
-                $instance = new $class;
+                $instance = $fieldDefinition->getInstance();
                 if ($fieldDefinition->getType() === ElementType::SINGLE_TYPE) {
                     $this->setValue($child->getName(), $instance->deserialize($child));
                 } else if ($fieldDefinition->getType() === ElementType::ARRAY_TYPE) {
