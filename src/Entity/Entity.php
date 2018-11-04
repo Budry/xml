@@ -72,52 +72,6 @@ abstract class Entity implements IEntity
     }
 
     /**
-     * @return array
-     */
-    public static function getNamespaces()
-    {
-        return [];
-    }
-
-    /**
-     * @param string $name
-     * @return \Budry\XML\Attributes\Attribute|null
-     */
-    private function getAttributeDefinition($name)
-    {
-        foreach ($this::getAttributesDefinition() as $item) {
-            if ($item->getName() === $name) {
-                return $item;
-            }
-        }
-
-        return null;
-    }
-
-    /**
-     * @return \Budry\XML\Attributes\Attribute[]
-     */
-    public static function getAttributesDefinition()
-    {
-        return [];
-    }
-
-    /**
-     * @param string $name
-     * @return ComplexType|SimpleType|null
-     */
-    private function getFieldDefinition($name)
-    {
-        foreach ($this::getFieldsDefinitions() as $field) {
-            if ($field->getName() === $name) {
-                return $field;
-            }
-        }
-
-        return null;
-    }
-
-    /**
      * @param \XMLWriter $writer
      * @param ElementType $field
      * @param $value
@@ -192,11 +146,35 @@ abstract class Entity implements IEntity
         }
     }
 
-    /*
-     *
-     * DEFAULT VALUES
-     *
+    /**
+     * @param string $name
+     * @return \Budry\XML\Attributes\Attribute|null
      */
+    private function getAttributeDefinition($name)
+    {
+        foreach ($this::getAttributesDefinition() as $item) {
+            if ($item->getName() === $name) {
+                return $item;
+            }
+        }
+
+        return null;
+    }
+
+    /**
+     * @param string $name
+     * @return ComplexType|SimpleType|null
+     */
+    private function getFieldDefinition($name)
+    {
+        foreach ($this::getFieldsDefinitions() as $field) {
+            if ($field->getName() === $name) {
+                return $field;
+            }
+        }
+
+        return null;
+    }
 
     /**
      * @param string $name
@@ -220,5 +198,27 @@ abstract class Entity implements IEntity
         $this->values[$name][] = $value;
 
         return $this;
+    }
+
+    /*
+     *
+     * DEFAULT VALUES
+     *
+     */
+
+    /**
+     * @return array
+     */
+    public static function getNamespaces()
+    {
+        return [];
+    }
+
+    /**
+     * @return \Budry\XML\Attributes\Attribute[]
+     */
+    public static function getAttributesDefinition()
+    {
+        return [];
     }
 }

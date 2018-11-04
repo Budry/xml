@@ -1,5 +1,10 @@
 {
   "name": "budry/xml",
+  "require": {
+    "ext-xmlwriter": "*",
+    "ext-simplexml": "*",
+    "ext-xmlreader": "*"
+  },
   "autoload": {
     "psr-4": {
       "Budry\\XML\\": "src/"
